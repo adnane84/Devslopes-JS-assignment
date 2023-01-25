@@ -6,9 +6,13 @@ import { data } from "../data/data";
 
 export function lowMoonsPlanets(data) {
   // Your code goes here...
+  return data.planets.reduce((result, moon) => {
+    if (moon.moons && moon.moons.length <= 10) {
+      return [...result, moon.name];
+    }
+    return result;
+  }, []);
 }
-
-
 
 // === TEST YOURSELF ===
 // Once you're finished run the test with "npm run test-11"
